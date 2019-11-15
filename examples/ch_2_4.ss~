@@ -1,0 +1,6 @@
+; 2.4
+
+(let ((a 4) (b -3))
+    (let ((a-squared (* a a))
+          (b-squared (* b b)))
+      (+ a-squared b-squared)))
