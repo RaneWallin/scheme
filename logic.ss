@@ -43,7 +43,7 @@
 ; takes in three 1-bit integers and returns a pair of 1-bit integers
 ; Useage: (fulladder x a b) where x is the carry
 ; output (s c) where s is the sum and c is the carry
-(define fulladder (lambda (x a b)
+(define fulladdr (lambda (x a b)
                     (cons (l-xor (l-xor a b) x)
                           (l-or (l-and a b) (l-and (l-xor a b) x))
                            
@@ -73,7 +73,7 @@
 ; Accepts two lists and a 1-bit carry digit and returns a pair containing a list
 ; and a carry digit. Uses a helper function to add a pair of binary lists
 ; output: ((# # #) . #)
-(define n-bit-adder (lambda (a b c)
+(define n-bit-addr (lambda (a b c)
                       (do-adder
                        (reverse-list a) ; a
                        (reverse-list b) ; b
@@ -90,8 +90,8 @@
                    (else (do-adder
                           (cdr a)                                       ; a
                           (cdr b)                                       ; b
-                          (cdr (fulladder (car a) (car b) c))           ; c
-                          (cons (car (fulladder (car a) (car b) c)) nl) ; nl
+                          (cdr (fulladdr (car a) (car b) c))           ; c
+                          (cons (car (fulladdr (car a) (car b) c)) nl) ; nl
                          ))
                    ))
   )
